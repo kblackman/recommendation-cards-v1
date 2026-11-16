@@ -1,0 +1,11 @@
+{
+  "title": "Recommendation Cards • In Scope",
+  "description": "This responsive web application offers personalized weekly recommendations through interactive cards, enhancing user engagement and experience.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
