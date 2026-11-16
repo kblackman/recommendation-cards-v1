@@ -14,9 +14,10 @@ const STATES: { id: CardState; label: string }[] = [
 interface DevUtilityProps {
   current: CardState;
   onChange: (state: CardState) => void;
+  onHide: () => void;
 }
 
-export function DevUtility({ current, onChange }: DevUtilityProps) {
+export function DevUtility({ current, onChange, onHide }: DevUtilityProps) {
   return (
     <div
       style={{
@@ -59,10 +60,31 @@ export function DevUtility({ current, onChange }: DevUtilityProps) {
               letterSpacing: "0.8px",
               textTransform: "uppercase",
               userSelect: "none",
+              flex: 1,
             }}
           >
             Dev · States
           </span>
+          <button
+            onClick={onHide}
+            style={{
+              fontFamily: "'Roboto', sans-serif",
+              fontSize: 10,
+              fontWeight: 500,
+              color: "#4a5260",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: "1px 4px",
+              borderRadius: 4,
+              letterSpacing: "0.4px",
+              lineHeight: 1,
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "#6d7783"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "#4a5260"; }}
+          >
+            Hide
+          </button>
         </div>
 
         {/* State buttons */}

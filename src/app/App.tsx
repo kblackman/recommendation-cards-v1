@@ -628,6 +628,7 @@ export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerData, setDrawerData] = useState<InsightDrawerData | null>(null);
   const [cardState, setCardState] = useState<CardState>("cards");
+  const [devPanelVisible, setDevPanelVisible] = useState(true);
   const [aiModalOpen, setAiModalOpen] = useState(false);
   const [activeView, setActiveView] = useState<"recommendations" | "journeys">("recommendations");
   const [visibleCardIds, setVisibleCardIds] = useState<number[]>([1, 2, 3]);
@@ -669,7 +670,7 @@ export default function App() {
   return (
     <div className="flex h-screen bg-white overflow-hidden">
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar onLogoClick={() => setDevPanelVisible(true)} />
 
       {/* Main area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
@@ -775,7 +776,7 @@ export default function App() {
       />
 
       {/* Dev utility — floating state switcher */}
-      <DevUtility current={cardState} onChange={setCardState} />
+      {devPanelVisible && <DevUtility current={cardState} onChange={setCardState} onHide={() => setDevPanelVisible(false)} />}
 
       {/* Manage Conversions Drawer */}
       <ManageConversionsDrawer
